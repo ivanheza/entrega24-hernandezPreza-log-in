@@ -1,0 +1,21 @@
+<nav class="navbar navbar-info bg-info">
+   <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1"> </span>
+      <ul class="navbar-nav me-auto mx-5">
+         <li class="nav-item">
+            {{#if user}}
+               <h1>Bienvenido
+                  {{user}}
+               </h1>
+            {{else}}
+
+            {{/if}}
+         </li>
+      </ul>
+      {{#if user}}
+         <a href="/logout" class="btn btn-danger btn-small">Logout</a>
+
+      {{else}}
+      {{/if}}
+   </div>
+</nav>
