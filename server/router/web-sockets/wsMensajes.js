@@ -6,6 +6,7 @@ const mensajesSocket = async (socket, sockets) => {
    ///
    const data = normalizeMsgs(await MensajesApi.readData())
    //console.log(data)
+   ///---- se mandan los mensajes normalizados a todos los sockets
    socket.emit("mensajes", data)
 
    socket.on("chatMessage", async (mensaje) => {
@@ -13,6 +14,8 @@ const mensajesSocket = async (socket, sockets) => {
       let newmsg = formatoMensaje(mensaje)
       console.log(newmsg)
       await MensajesApi.guardarNuevo(newmsg)
+      ///---- se mandan los mensajes a todos los sockets ya normalizados
+
       sockets.emit("mensajes", normalizeMsgs(await MensajesApi.readData()))
    })
 }

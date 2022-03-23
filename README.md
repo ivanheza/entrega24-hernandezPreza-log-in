@@ -6,7 +6,7 @@ El desarrollo de la app se encuentra en la carpeta server
 
 -  **npm run start:** inicializa el proyecto
 
-La persistencia de los datos esta basada en FileSystem y la persistencia de las sesiones en MONGO
+Para este desafío persistencia de los datos esta basada en FileSystem y la persistencia de las sesiones en MONGO
 
 ## LOG-IN
 

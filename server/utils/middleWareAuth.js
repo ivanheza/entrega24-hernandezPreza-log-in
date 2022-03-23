@@ -1,3 +1,4 @@
+///----///---- Middleware para autenticar el acceso a rutas
 const authMiddleware = (req, res, next) => {
    try {
       console.log(req.session.user)

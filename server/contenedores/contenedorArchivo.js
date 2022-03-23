@@ -4,6 +4,7 @@ class ContenedorArchivo {
    constructor(ruta) {
       this.ruta = ruta
    }
+   //metodo lectura de datos
    async readData() {
       try {
          const data = await fs.readFile(this.ruta)
@@ -11,6 +12,7 @@ class ContenedorArchivo {
          return mensajes
       } catch (error) {}
    }
+   //Metodo para encontrar un elemento por ID
    async readID(id) {
       const data = await this.readData()
       //console.log(data)
@@ -18,6 +20,7 @@ class ContenedorArchivo {
       //console.log(find)
       return find
    }
+   //Metodo para guardar un nuevo dato
    async guardarNuevo(data) {
       const array = await this.readData()
       //console.log(mensajes)
@@ -26,7 +29,7 @@ class ContenedorArchivo {
       await this.writeFile(array, "new data saved")
       return array
    }
-
+   // Metodo para actualizar datos
    async actualizar(data) {
       const array = await this.readData()
       const datoActual = array.findIndex((d) => d.id == data.id)
@@ -43,6 +46,7 @@ class ContenedorArchivo {
          }
       }
    }
+   //Metodo para borrar por ID
 
    async borrar(id) {
       const array = await this.readData()
@@ -55,6 +59,7 @@ class ContenedorArchivo {
       }
       return {status: 400, msg: `No existe el registro ${id}`}
    }
+   // Metodo para guardar archivo con log incluido
    async writeFile(data, log) {
       try {
          const content = await fs.writeFile(this.ruta, JSON.stringify(data, null, 2))

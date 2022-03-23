@@ -6,6 +6,7 @@ import ProductosApi from "../models/productos.js"
 import authMiddleware from "../utils/middleWareAuth.js"
 
 router.get("/productos-test", async (req, res) => {
+   ///---- se genera los Mocks
    const productosNuevos = generarProductos(5)
 
    const data = await ProductosApi.readData()

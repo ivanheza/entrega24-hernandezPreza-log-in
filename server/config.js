@@ -1,6 +1,6 @@
 import dotenv from "dotenv"
 dotenv.config()
-
+///---- ///---- Se configurará desde aqui el acceso a base de datos
 export default {
    mongoDB: {
       client: "mongodb",

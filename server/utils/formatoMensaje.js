@@ -3,6 +3,7 @@ import {customAlphabet} from "nanoid"
 
 const msgID = customAlphabet("1234567890abcdef", 4)
 const date = moment().format("D-MMM-YY,h:mm a")
+///---- ///---- Metodo para darle formato y ID al mensaje del Chat
 const formatoMensaje = (msg) => {
    return {
       author: {

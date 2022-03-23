@@ -10,9 +10,6 @@ class ContenedorSQL {
       this.knex = knex(config)
       this.table = table
    }
-   //Funcion para guardar producto
-   ///
-   //ApiMOCK
 
    async apiMock(cant) {
       const nuevos = []

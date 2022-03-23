@@ -22,6 +22,7 @@ const httpServer = createServer(app)
 const io = new Server(httpServer)
 
 //SOCKET IO
+///---- se definen los sockets para productos y mensajes
 io.on("connection", async (socket) => {
    productosSocket(socket, io.sockets)
    mensajesSocket(socket, io.sockets)
@@ -30,7 +31,7 @@ io.on("connection", async (socket) => {
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cors({credentials: true}))
-
+///----  Configuración de Mongo Store
 app.use(
    session({
       secret: "secret",
@@ -46,7 +47,7 @@ app.use(
    })
 )
 
-//handlebars
+///---- handlebars
 const hbs = create({
    extname: ".hbs", //extension
    defaultLayout: "main",
@@ -61,7 +62,7 @@ app.set("views", "./views")
 ///---- Rutas API REST
 app.use("/api", productosRouter)
 
-// rutas del servidor react
+///---- rutas para el login y home
 app.use(loginRouter)
 
 app.get("*", (req, res) => {
